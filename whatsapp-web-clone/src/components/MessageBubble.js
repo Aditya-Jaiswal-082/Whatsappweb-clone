@@ -6,7 +6,7 @@ export default function MessageBubble({ msg, selfNumber }) {
   const statusIcons = {
     sent: "✓",
     delivered: "✓✓",
-    read: "✓✓✓",
+    read: "✓✓✓"
   };
 
   return (
@@ -15,7 +15,9 @@ export default function MessageBubble({ msg, selfNumber }) {
         {msg.text}
         <span className="message-meta">
           {new Date(msg.timestamp).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
-          {isSelf && statusIcons[msg.status] && <span className="status-icon">{statusIcons[msg.status]}</span>}
+          {isSelf && statusIcons[msg.status] && (
+            <span className="status-icon">{statusIcons[msg.status]}</span>
+          )}
         </span>
       </div>
     </div>

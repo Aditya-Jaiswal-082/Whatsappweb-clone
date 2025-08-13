@@ -1,13 +1,18 @@
 import React from "react";
 
-export default function Sidebar({ conversations, selectedChat, setSelectedChat }) {
+export default function Sidebar({ conversations = [], selectedChat, setSelectedChat }) {
+  if (!conversations.length) {
+    return (
+      <div className="sidebar">
+        <div className="no-conversations">No conversations yet</div>
+      </div>
+    );
+  }
+
   return (
     <div className="sidebar">
-      <header className="sidebar-header">
-        <h2>WhatsApp</h2>
-      </header>
       <div className="conversation-list">
-        {conversations.map(conv => {
+        {conversations.map((conv) => {
           const lastMsg = conv.messages[conv.messages.length - 1];
           return (
             <div
@@ -17,7 +22,12 @@ export default function Sidebar({ conversations, selectedChat, setSelectedChat }
             >
               <div className="avatar">{conv.name[0]}</div>
               <div className="conversation-info">
-                <div className="name">{conv.name}</div>
+                <div className="name-row">
+                  <div className="name">{conv.name}</div>
+                  {conv.unreadCount ? (
+                    <div className="unread-badge">{conv.unreadCount}</div>
+                  ) : null}
+                </div>
                 <div className="last-message" title={lastMsg?.text}>
                   {lastMsg?.text?.slice(0, 35)}
                 </div>

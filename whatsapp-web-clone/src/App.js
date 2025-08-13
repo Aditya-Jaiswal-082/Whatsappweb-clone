@@ -68,8 +68,8 @@ function App() {
 
   return (
     <div className="wa-app">
-      <div className="wa-header">
-        <img src="/whatsapp-logo.png" alt="WhatsApp Logo" className="wa-logo" />
+       <div className="wa-header">
+        {/* <img src="/whatsapp-logo.png" alt="WhatsApp Logo" className="wa-logo" /> */}
         <span className="wa-title">WhatsApp</span>
       </div>
       <div className="main-area">
