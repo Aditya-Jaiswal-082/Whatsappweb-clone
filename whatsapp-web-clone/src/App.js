@@ -4,7 +4,7 @@ import Sidebar from "./components/Sidebar";
 import ChatWindow from "./components/ChatWindow";
 import "./App.css";
 
-const API_BASE_URL = "http://localhost:5000/api"; // Change this to your backend URL when deployed
+const API_BASE_URL = "https://whatsappweb-backend-yqrs.onrender.com/api"; // Change this to your backend URL when deployed
 
 function App() {
   const [conversations, setConversations] = useState([]);
